@@ -13,8 +13,6 @@ cd llm-inference-fast-benchmark
 ### Step 1: Terminal Setup and Commands
 
 #### Terminal 1: Start the API Server
-Activate the environment and start the `vllm` API server:
-
 ```bash
 source env/bin/activate
 
@@ -35,8 +33,7 @@ python3 -m vllm.entrypoints.openai.api_server \
 ```
 
 #### Terminal 2: Benchmark Script
-**Setup Phase:**
-Activate the environment, install dependencies, and run the benchmark script:
+**1st time run:**
 
 ```bash
 source env/bin/activate
@@ -54,8 +51,7 @@ python run.py \
     --use-chat
 ```
 
-**Reboot Phase:**
-Run the benchmark script again if needed:
+**2nd and onwards run:**
 
 ```bash
 source env/bin/activate
@@ -72,8 +68,6 @@ python run.py \
 ```
 
 #### Terminal 3: Monitor GPU Usage
-Use the following command to monitor GPU performance:
-
 ```bash
 watch -n 1 nvidia-smi
 ```
