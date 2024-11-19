@@ -15,9 +15,7 @@ cd llm-inference-fast-benchmark
 
 ---
 
-## Terminal 1: Set Up Environment and Start Server
-
-### Activate Virtual Environment and Install Dependencies
+## Terminal 1: Start Server
 
 ```bash
 source env/bin/activate
@@ -69,14 +67,14 @@ python3 -m sglang.launch_server \
 
 ## Terminal 2: Run Benchmark Script
 
-### Activate Virtual Environment and Install Requirements (1st Time Run Only)
+### 1st Time Run Only
 
 ```bash
 source env/bin/activate
 pip install -r requirements.txt
 ```
 
-### Run Benchmark Script (2nd Time and onwards)
+### 2nd Time and onwards
 
 #### Option A: VLLM
 
@@ -112,6 +110,14 @@ python run.py \
 
 ```bash
 watch -n 1 nvidia-smi
+```
+
+---
+
+## Terminal 4 (Optional): Get Metrics
+
+```bash
+curl http://localhost:8081/metrics
 ```
 
 ---
