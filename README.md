@@ -15,16 +15,16 @@ cd llm-inference-fast-benchmark
 
 ---
 
-## Step 1: Choose and Start a Server
+## Terminal 1: Set Up Environment and Start Server
 
-### Terminal 1: Set Up Environment and Start Server
+### Activate Virtual Environment and Install Dependencies
 
-#### Activate Virtual Environment and Install Dependencies
 ```bash
 source env/bin/activate
 ```
 
 ### Option A: VLLM Server
+
 ```bash
 # Install VLLM
 pip install vllm
@@ -45,6 +45,7 @@ python3 -m vllm.entrypoints.openai.api_server \
 ```
 
 ### Option B: SGLang Server
+
 ```bash
 # Install SGLang and FlashInfer
 pip install --upgrade pip
@@ -66,18 +67,19 @@ python3 -m sglang.launch_server \
 
 ---
 
-## Step 2: Run Benchmark Script
+## Terminal 2: Run Benchmark Script
 
-### Terminal 2: Benchmark Script
-#### Activate Virtual Environment and Install Requirements (1st Time Run Only)
+### Activate Virtual Environment and Install Requirements (1st Time Run Only)
+
 ```bash
 source env/bin/activate
 pip install -r requirements.txt
 ```
 
-### Run Benchmark Script
+### Run Benchmark Script (2nd Time and onwards)
 
-#### VLLM Benchmark Script
+#### Option A: VLLM
+
 ```bash
 python run.py \
     --rounds 1 \
@@ -90,7 +92,8 @@ python run.py \
     --use-chat
 ```
 
-#### SGLang Benchmark Script
+#### Option B: SGLang Server
+
 ```bash
 python run.py \
     --rounds 1 \
@@ -105,9 +108,8 @@ python run.py \
 
 ---
 
-## Step 3: Monitor GPU Usage
+## Terminal 3: Monitor GPU Usage
 
-### Terminal 3: Monitor GPU Usage
 ```bash
 watch -n 1 nvidia-smi
 ```
